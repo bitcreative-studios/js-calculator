@@ -7,7 +7,7 @@ $gray: #817e85;
 $dark-gray: #413f47;
 $light-gray: #c4c4c4;
 $red: #a32131;
-$yellow: #817e85;
+$yellow: #dfb025;
 $green: #526a2e;
 $brown: #604026;
 
@@ -97,15 +97,14 @@ body {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 1rem;
-    #ce-button {
-      font-size: 0.9em;
-    }
 
     &__key {
+      font-size: 1.05em;
       display: inline-grid;
       place-content: center;
       background: $light-gray;
       border-radius: 50%;
+      color: $dark-gray;
     }
   }
 }
@@ -150,4 +149,31 @@ body {
       }
     }
   }
+}
+.memory-key,
+#sign-change {
+  color: $green;
+}
+
+.operation {
+  color: $brown;
+  font-weight: 600;
+}
+
+#division,
+#multiplication,
+#subtraction,
+#addition {
+  font-size: 1.3em;
+}
+
+#ce-button {
+  font-size: 0.8em;
+}
+#triangle {
+  font-size: 1.02em;
+}
+#equal {
+  background: $yellow;
+  font-weight: bold;
 }
