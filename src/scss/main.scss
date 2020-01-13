@@ -82,7 +82,8 @@ body {
       border-radius: 1.2rem;
       background: #eaeaea;
       color: $dark-gray;
-      font-size: 2em;
+      font-family: "brevier", sans-serif;
+      font-size: 1.5em;
     }
   }
 }
@@ -146,11 +147,22 @@ body {
       margin-right: 2rem;
       .calculator__actions__group__main {
         background: $green;
+        box-shadow: inset 2px 2px 3px 0 #d2ecbc91,
+          0 0 0 1px rgba(60, 42, 42, 0.47);
+      }
+      .calculator__actions__group__indicator {
+        background: #000;
       }
     }
     &--red {
       .calculator__actions__group__main {
         background: $red;
+        box-shadow: inset 2px 2px 3px 0 #ecbdc3b0,
+          0 0 0 1px rgba(60, 42, 42, 0.47);
+      }
+      .calculator__actions__group__indicator {
+        background: $white;
+        border: 1px solid black;
       }
     }
   }
