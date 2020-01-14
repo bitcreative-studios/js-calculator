@@ -8,7 +8,6 @@ import {
   MAX_DIGITS,
 } from "./lib"
 
-// TODO: wait till the end of the on screen transition to display numbers
 class Calculator {
   constructor({ component, theme, history } = INITIAL_STATE) {
     if (!component) {
@@ -105,7 +104,6 @@ class Calculator {
     switch (event.type) {
       case "dblclick":
         // FIXME: this doesn't work
-        console.log("this was a double click")
         this.handleInputClear(true)
         break
       case "mousedown":
