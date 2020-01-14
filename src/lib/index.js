@@ -11,7 +11,7 @@ export const classes = {
 
 export const LCD_GLARE_STYLES = `inset 0 4px 6px -1px rgba(43, 43, 43, 0.75),
           inset 0 -4px 6px rgba(43, 43, 43, 0.45),
-          inset 4px -6px 15px 0px rgba(255, 255, 255, 0.9)`
+          inset 4px -3px 15px 0px rgba(255, 255, 255, 0.9)`
 
 export const LCD_OFF_STATE = `inset 0 4px 6px -1px rgba(43, 43, 43, 0.75),
           inset 0 -4px 6px rgba(43, 43, 43, 0.45)`
