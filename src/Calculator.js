@@ -19,27 +19,30 @@ class Calculator {
       "color: cyan"
     )
     this.MAX_DIGITS = MAX_DIGITS
-    this.isCleared = false
+    this.clearButtonTimeStamp = 0
     this.isOn = false
     this.theme = theme
     this.component = component
     this.history = history
     this.current = history.inProgress ? history.inProgress : INITIAL_CURRENT
 
-    // setup component
+    // setup component we do it in two steps because addEventListener returns void not the element
     this.display = component.querySelector(`.${elements.lcd.screen}`)
-    this.powerOn = component
-      .querySelector(`.${elements.powerOn}`)
-      .addEventListener("click", this.handlePowerOn)
-    this.powerOff = component
-      .querySelector(`.${elements.powerOff}`)
-      .addEventListener("click", this.handlePowerOff)
-    this.clear = component
-      .querySelector(`#clear-button`)
-      .addEventListener("click", this.handleClear)
-    this.keys = [
-      ...component.querySelectorAll(`.${elements.keys}`),
-    ].forEach(key => key.addEventListener("click", this.handleInput))
+
+    this.powerOn = component.querySelector(`.${elements.powerOn}`)
+    this.powerOn.addEventListener("click", this.handlePowerOn)
+
+    this.powerOff = component.querySelector(`.${elements.powerOff}`)
+    this.powerOff.addEventListener("click", this.handlePowerOff)
+
+    this.clear = component.querySelector(`#clear-button`)
+    this.clear.addEventListener("mouseup", this.handleClearButton)
+    this.clear.addEventListener("mousedown", this.handleClearButton)
+    this.clear.addEventListener("dblclick", this.handleClearButton)
+
+    this.keys = [...component.querySelectorAll(`.${elements.keys}`)].map(key =>
+      key.addEventListener("click", this.handleInput)
+    )
   }
 
   handlePowerOn = () => {
@@ -86,13 +89,7 @@ class Calculator {
     }
   }
 
-  handleOperation = operation => {
-    console.log(
-      `%c -------- DEBUG INFO [@Calculator: handleOperation] --------`,
-      "color: cyan"
-    )
-    console.log(`current operation: ${operation}`)
-  }
+  handleOperation = operation => {}
 
   handleCalculate = () => {}
 
@@ -104,24 +101,42 @@ class Calculator {
     console.log(`current memory operation: ${operation}`)
   }
 
-  handleClear = () => {
-    if (!this.isCleared) {
-      // just clearing last input
-      if (this.current.operation) {
-        this.current.rhs = ""
-        this.display.textContent = this.current.rhs
-        this.isCleared = true
-      } else {
-        this.current.lhs = ""
-        this.display.textContent = this.current.lhs
-        this.isCleared = true
+  handleClearButton = event => {
+    switch (event.type) {
+      case "dblclick":
+        // FIXME: this doesn't work
+        console.log("this was a double click")
+        this.handleInputClear(true)
+        break
+      case "mousedown":
+        this.clearButtonTimeStamp = event.timeStamp
+        break
+      case "mouseup":
+      default: {
+        if (event.timeStamp - this.clearButtonTimeStamp >= 500) {
+          this.handleInputReset()
+          break
+        }
+        this.handleInputClear()
+        break
       }
-    } else {
-      // clear entire operation
-      this.resetObject(this.current)
-      this.display.textContent = ""
-      this.isCleared = false
     }
+  }
+
+  handleInputClear = (clearAll = false) => {
+    const operand = this.current.operation ? "rhs" : "lhs"
+    if (!clearAll) {
+      this.clearInput(operand)
+      // just clearing last input
+    } else {
+      this.clearInput(operand, true)
+      // clear entire operation
+    }
+  }
+
+  handleInputReset = () => {
+    this.resetObject(this.current)
+    this.display.textContent = this.current.lhs
   }
 
   addLCDGlare = () => {
@@ -131,11 +146,30 @@ class Calculator {
   resetObject = obj => {
     if (!obj) return
     Object.keys(obj).map(key => {
-      console.log(`current key: ${key}`)
       // eslint-disable-next-line no-param-reassign
       obj[key] = ""
     })
-    console.log(`current state: ${JSON.stringify(obj, null, 2)}`)
+  }
+
+  clearInput = (operand, all = false) => {
+    switch (operand) {
+      case "lhs":
+        this.current.lhs = this.current.lhs.substring(
+          0,
+          all ? this.current.lhs.length : this.current.lhs.length - 1
+        )
+        this.display.textContent = this.current.lhs
+        break
+      case "rhs":
+        this.current.rhs = this.current.rhs.substring(
+          0,
+          all ? this.current.lhs.length : this.current.lhs.length - 1
+        )
+        this.display.textContent = this.current.rhs
+        break
+      default:
+        throw new Error("Unknown operand type")
+    }
   }
 }
 
