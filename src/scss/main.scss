@@ -1,5 +1,5 @@
 @import "normalize";
-@import url("https://use.typekit.net/gtc1mvz.css");
+@import url("https://use.typekit.net/mxm7xtg.css");
 
 // Colors
 $black: #1a1e1d;
@@ -140,7 +140,10 @@ body {
     grid-gap: 1rem;
 
     &__key {
-      font-size: 1.05em;
+      font-family: dinosaur, sans-serif;
+      font-style: normal;
+      font-size: 1.15em;
+      font-weight: 500;
       display: inline-grid;
       place-content: center;
       //background: $light-gray;
@@ -197,7 +200,7 @@ body {
         background: $black;
       }
     }
-    &--green {
+    &--on {
       margin-right: 2rem;
       .calculator__actions__group__main {
         background: $green;
@@ -211,7 +214,7 @@ body {
         }
       }
     }
-    &--red {
+    &--off {
       .calculator__actions__group__main {
         background: $red;
         box-shadow: inset 1px 2px 3px 0 #ecbdc3b0,
@@ -239,17 +242,18 @@ body {
 }
 
 #division,
-#multiplication,
 #subtraction,
+#multiplication,
 #addition {
-  font-size: 1.3em;
+  font-size: 1.6em;
 }
 
 #ce-button {
   font-size: 0.8em;
 }
 #triangle {
-  font-size: 1.02em;
+  text-align: center;
+  font-size: 0.91em;
 }
 #equal {
   background: $yellow;
