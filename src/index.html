@@ -25,16 +25,16 @@
         </div>
         <div class="calculator__display">
           <div class="calculator__display__shield">
-            <div class="calculator__display__shield__screen">
-              12'345'678.
-            </div>
+            <div
+              class="calculator__display__shield__screen calculator__display__shield__screen--off"
+            ></div>
           </div>
         </div>
         <div class="calculator__actions">
           <div
             class="calculator__actions__group calculator__actions__group--on"
           >
-            <div class="calculator__actions__group__main"></div>
+            <div class="calculator__actions__group__main" data-key="on"></div>
 
             <div class="calculator__actions__group__marker"></div>
             <div
@@ -44,72 +44,136 @@
           <div
             class="calculator__actions__group  calculator__actions__group--off"
           >
-            <div class="calculator__actions__group__main"></div>
+            <div class="calculator__actions__group__main" data-key="off"></div>
             <div class="calculator__actions__group__marker"></div>
             <div class="calculator__actions__group__indicator"></div>
           </div>
         </div>
         <div class="calculator__keys">
           <div class="calculator__keys__row">
-            <span id="memory-plus" class="memory-key calculator__keys__row__key"
+            <span
+              id="memory-plus"
+              class="memory-key calculator__keys__row__key"
+              data-key="mem-plus"
               >M+</span
-            ><span
+            >
+            <span
               id="memory-minus"
               class="memory-key  calculator__keys__row__key"
+              data-key="mem-minus"
               >M-</span
-            ><span
+            >
+            <span
               id="memory-restore"
               class="memory-key calculator__keys__row__key"
+              data-key="mem-recall"
               >MR</span
-            ><span
+            >
+            <span
               id="memory-clear"
               class="memory-key calculator__keys__row__key"
+              data-key="mem-clear"
               >MC</span
-            ><span id="sign-change" class="calculator__keys__row__key"
+            >
+            <span
+              id="sign-change"
+              class="calculator__keys__row__key"
+              data-key="sign"
               >+/-</span
             >
           </div>
           <div class="calculator__keys__row">
-            <span id="triangle" class="operation calculator__keys__row__key"
+            <span
+              id="triangle"
+              class="operation calculator__keys__row__key"
+              data-key="triangle"
               >&#x25b3;%</span
-            ><span id="7" class="calculator__keys__row__key">7</span
-            ><span id="8" class="calculator__keys__row__key">8</span
-            ><span id="9" class="calculator__keys__row__key">9</span
-            ><span id="division" class=" operation calculator__keys__row__key"
+            >
+            <span id="7" class="calculator__keys__row__key" data-key="7"
+              >7</span
+            >
+            <span id="8" class="calculator__keys__row__key" data-key="8"
+              >8</span
+            >
+            <span id="9" class="calculator__keys__row__key" data-key="9"
+              >9</span
+            >
+            <span
+              id="division"
+              class=" operation calculator__keys__row__key"
+              data-key="division"
               >&#x00f7;</span
             >
           </div>
           <div class="calculator__keys__row">
-            <span id="sqrt" class="operation calculator__keys__row__key"
+            <span
+              id="sqrt"
+              class="operation calculator__keys__row__key"
+              data-key="sqrt"
               >&#x221a;</span
-            ><span id="4" class="calculator__keys__row__key">4</span
-            ><span id="5" class="calculator__keys__row__key">5</span
-            ><span id="6" class="calculator__keys__row__key">6</span
-            ><span
+            >
+            <span id="4" class="calculator__keys__row__key" data-key="4"
+              >4</span
+            >
+            <span id="5" class="calculator__keys__row__key" data-key="5"
+              >5</span
+            >
+            <span id="6" class="calculator__keys__row__key" data-key="6"
+              >6</span
+            >
+            <span
               id="multiplication"
               class=" operation calculator__keys__row__key"
+              data-key="multiplication"
               >&#x00d7;</span
             >
           </div>
           <div class="calculator__keys__row">
-            <span id="percent" class="operation calculator__keys__row__key"
+            <span
+              id="percent"
+              class="operation calculator__keys__row__key"
+              data-key="percent"
               >%</span
-            ><span id="1" class="calculator__keys__row__key">1</span
-            ><span id="2" class="calculator__keys__row__key">2</span
-            ><span id="3" class="calculator__keys__row__key">3</span
-            ><span id="subtraction" class="operation calculator__keys__row__key"
+            >
+            <span id="1" class="calculator__keys__row__key" data-key="1"
+              >1</span
+            >
+            <span id="2" class="calculator__keys__row__key" data-key="2"
+              >2</span
+            >
+            <span id="3" class="calculator__keys__row__key" data-key="3"
+              >3</span
+            >
+            <span
+              id="subtraction"
+              class="operation calculator__keys__row__key"
+              data-key="subtraction"
               >-</span
             >
           </div>
           <div class="calculator__keys__row">
-            <span id="ce-button" class=" operation calculator__keys__row__key"
-              ><span>CE</span><span>C</span></span
-            ><span id="0" class="calculator__keys__row__key">0</span
-            ><span id="decimal" class="operation calculator__keys__row__key"
+            <div
+              id="ce-button"
+              class=" operation calculator__keys__row__key"
+              data-key="ce-c"
+            >
+              <span>CE</span><span>C</span>
+            </div>
+            <span id="0" class="calculator__keys__row__key" data-key="0">0</span
+            ><span
+              id="decimal"
+              class="operation calculator__keys__row__key"
+              data-key="decimal"
               >&#x2022;</span
-            ><span id="equal" class="operation calculator__keys__row__key"
+            ><span
+              id="equal"
+              class="operation calculator__keys__row__key"
+              data-key="equal"
               >=</span
-            ><span id="addition" class="operation calculator__keys__row__key"
+            ><span
+              id="addition"
+              class="operation calculator__keys__row__key"
+              data-key="addition"
               >+</span
             >
           </div>
