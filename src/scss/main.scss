@@ -80,6 +80,25 @@ body {
     inset 1px 1px 8px 1px rgba(86, 69, 39, 0.56),
     inset 3px 2px 4px 0 rgba(61, 74, 67, 0), inset 0 -3px 2px 6px #fefefe;
 
+  &:after {
+    position: absolute;
+    content: "";
+    height: 0;
+    top: 0;
+    width: calc(97%);
+    border: 15px solid transparent;
+    border-top-color: rgba(43, 43, 43, 0.08);
+  }
+  &:before {
+    position: absolute;
+    content: "";
+    height: 0;
+    bottom: 0;
+    width: calc(97%);
+    border: 15px solid transparent;
+    border-bottom-color: rgba(43, 43, 43, 0.08);
+  }
+
   &__shield {
     display: grid;
     place-items: center;
